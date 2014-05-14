@@ -1,6 +1,6 @@
-(ns dota-clj.api-test
+(ns dota-api.test
   (:use [clojure.test])
-  (:require [dota-clj :as api]
+  (:require [dota-api.core :as api]
             [environ.core :refer [env]]))
 
 (def api-key (env :steam-api-key))

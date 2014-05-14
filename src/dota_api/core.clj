@@ -1,4 +1,4 @@
-(ns dota-clj
+(ns dota-api.core
   (:require [clj-http.client :as http]))
 
 (def ^:dynamic *token*)
@@ -15,11 +15,11 @@
 ;WebAPI Methods
 (defn get-heroes
   [& {:keys [token] :or {token *token*}}]
-    (get-in (http/get hero-endpoint {:query-params {:key token :language "en"} :as :auto}) [:body :result :heroes]))
+  (get-in (http/get hero-endpoint {:query-params {:key token :language "en"} :as :auto}) [:body :result :heroes]))
 
 (defn get-match-history
   [& {:keys [token] :or {token *token*} :as options}]
-    (get-in (http/get match-history-endpoint {:query-params (assoc options :key token ) :as :auto}) [:body :result :matches]))
+  (get-in (http/get match-history-endpoint {:query-params (assoc options :key token ) :as :auto}) [:body :result :matches]))
 
 (defn get-match-details
   [match-id & {:keys [token] :or {token *token*} :as options}]
